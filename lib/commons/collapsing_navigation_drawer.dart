@@ -26,13 +26,14 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
       child: Column(
         children: <Widget>
       [
-          ListView.builder (itemBuilder: (context,counter)
+        Expanded (
+         child: ListView.builder (itemBuilder: (context,counter)
           {
             return CollapsingListTile(
               title: navigationItems[counter].title,
               icon: navigationItems[counter].icon
             );
-          })
+          }))
         ],
       ),
     );
