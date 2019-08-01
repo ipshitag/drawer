@@ -14,20 +14,27 @@ class CollapsingNavigationDrawer extends StatefulWidget
 
 class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
 {
+  double maxWidth =250;
+  double minWidth =70;
+
   @override
   Widget build(BuildContext context)
   {
-    return Column(
-      children: <Widget>
-    [
-        ListView.builder (itemBuilder: (context,counter)
-        {
-          return CollapsingListTile(
-            title: navigationItems[counter].title,
-            icon: navigationItems[counter].icon
-          );
-        })
-      ],
+    return Container(
+      width: 250.0,
+      color: Colors.black87,
+      child: Column(
+        children: <Widget>
+      [
+          ListView.builder (itemBuilder: (context,counter)
+          {
+            return CollapsingListTile(
+              title: navigationItems[counter].title,
+              icon: navigationItems[counter].icon
+            );
+          })
+        ],
+      ),
     );
   }
 }
