@@ -7,20 +7,33 @@ import '../themes.dart';
 
 class CollapsingListTile extends StatefulWidget {
 
-  CollapsingListTile ({@required this.title, @required this.icon});
+  CollapsingListTile ({@required this.title, @required this.icon, @required this.animationController});
   final String title;
   final IconData icon;
+  final AnimationController animationController;
 
   @override
   _CollapsingListTileState createState() => _CollapsingListTileState();
 }
 
-class _CollapsingListTileState extends State<CollapsingListTile> {
+class _CollapsingListTileState extends State<CollapsingListTile>
+{
+
+  Animation<double> _widthAnimation;
+
+  @override
+  void initState()
+  {
+    super.initState();
+     _widthAnimation = Tween<double>(begin: 250, end: 70).animate(widget.animationController);
+  }
+
   @override
   Widget build(BuildContext context)
   {
     return Container
       (
+      width: _widthAnimation.value,
       margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
     child: Row
       (
@@ -28,7 +41,7 @@ class _CollapsingListTileState extends State<CollapsingListTile> {
     [
         Icon(widget.icon,color: Colors.white30, size: 38.0),
         SizedBox(width: 10.0,),
-        Text(widget.title, style: listTitleDefaultTextStyle,)
+       (_widthAnimation.value > 75) ? Text(widget.title, style: listTitleDefaultTextStyle,) : Container()
       ],
     ),
     );
