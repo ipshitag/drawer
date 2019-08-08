@@ -19,13 +19,14 @@ class CollapsingListTile extends StatefulWidget {
 class _CollapsingListTileState extends State<CollapsingListTile>
 {
 
-  Animation<double> _widthAnimation;
+  Animation<double> _widthAnimation,_sizedBoxAnimation;
 
   @override
   void initState()
   {
     super.initState();
-     _widthAnimation = Tween<double>(begin: 250, end: 70).animate(widget.animationController);
+     _widthAnimation = Tween<double>(begin: 250, end: 60).animate(widget.animationController);
+     _sizedBoxAnimation = Tween<double>(begin: 10, end: 0).animate(widget.animationController);
   }
 
   @override
@@ -40,8 +41,8 @@ class _CollapsingListTileState extends State<CollapsingListTile>
         children: <Widget>
     [
         Icon(widget.icon,color: Colors.white30, size: 38.0),
-        SizedBox(width: 10.0,),
-       (_widthAnimation.value > 75) ? Text(widget.title, style: listTitleDefaultTextStyle,) : Container()
+        SizedBox(width: _sizedBoxAnimation.value),
+       (_widthAnimation.value > 200) ? Text(widget.title, style: listTitleDefaultTextStyle,) : Container()
       ],
     ),
     );
