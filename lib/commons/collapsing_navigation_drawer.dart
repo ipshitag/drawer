@@ -25,7 +25,7 @@ class CollapsingNavigationDrawerState
   void initState()
   {
     super.initState();
-    _animationController = AnimationController(vsync: this,duration: Duration(milliseconds: 1000));
+    _animationController = AnimationController(vsync: this,duration: Duration(milliseconds: 700));
     widthAnimation = Tween<double>(begin: maxWidth, end: minWidth).animate(_animationController);
   }
 
@@ -74,9 +74,12 @@ class CollapsingNavigationDrawerState
     isCollapsed ? _animationController.reverse() : _animationController.forward();
     });
     },
-    child: Icon
+    child: AnimatedIcon
     (
-    Icons.chevron_left, color: Colors.white, size: 50.0
+      icon: AnimatedIcons.close_menu,
+      progress: _animationController,
+      color : Colors.black45,
+      size: 50.0
     ,)
     )
     ],

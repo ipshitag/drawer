@@ -42,7 +42,7 @@ class _CollapsingListTileState extends State<CollapsingListTile>
     [
         Icon(widget.icon,color: Colors.white30, size: 38.0),
         SizedBox(width: _sizedBoxAnimation.value),
-       (_widthAnimation.value > 200) ? Text(widget.title, style: listTitleDefaultTextStyle,) : Container()
+       (_widthAnimation.value > 220) ? Text(widget.title, style: listTitleDefaultTextStyle,) : Container()
       ],
     ),
     );
