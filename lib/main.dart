@@ -1,3 +1,4 @@
+import 'package:drawer/themes.dart';
 import 'package:flutter/material.dart';
 
 import 'commons/collapsing_navigation_drawer.dart';
@@ -26,10 +27,20 @@ class MyHomePage extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar
+        (
+        backgroundColor: drawerBackgroundColor,
         title: Text('Drawer'),
       ),
-      drawer: CollapsingNavigationDrawer()
+      body: Stack
+        (
+        children: <Widget>
+        [
+
+          CollapsingNavigationDrawer(),
+
+        ],
+      )
     );
 
   }
