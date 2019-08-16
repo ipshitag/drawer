@@ -1,3 +1,4 @@
+import 'package:drawer/model/firstPage.dart';
 import 'package:drawer/themes.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +15,13 @@ class MyApp extends StatelessWidget
       (
       title: 'Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.red,
       ),
       home: MyHomePage(),
+      routes: <String, WidgetBuilder>
+      {
+        "/a" : (BuildContext context)=> new firstPg(),
+      }
     );
   }
 }
@@ -26,11 +31,12 @@ class MyHomePage extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return Scaffold(
+    return Scaffold
+    (
       appBar: AppBar
         (
         backgroundColor: drawerBackgroundColor,
-        title: Text('Drawer'),
+        title: Text('SyllaBilla'),
       ),
       body: Stack
         (
